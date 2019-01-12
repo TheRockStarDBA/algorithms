@@ -1,21 +1,3 @@
-""" Search for a range 
-
-Find First and Last Position of Element in Sorted Array
-
-Description:
-
-Given an array of integers sorted in ascending order, find the starting and ending position of a given target value.
-
-Your algorithm’s runtime complexity must be in the order of O(log n).
-
-Input: [5, 7, 7, 8, 8, 10] and target value 8
-
-Output: [3, 4]
-
-Assumptions:
-
-If the target is not found in the array, return [-1, -1] """
-
 class Solution(object):
     def searchRange(self, nums, target):
         """
@@ -24,12 +6,39 @@ class Solution(object):
         :rtype: List[int]
         """
         start = 0
-        end = len(nums)-1
+        end = len(nums) - 1
+        result = []
 
-        while True:
-            if nums[start]>target or nums[end]<target:
-                return[-1,-1]
-            
-            mid = start+(end-start)/2
-            if 
+        while start < end:
+            mid = start + int((end - start) / 2)
+            if nums[mid] == target and (mid == 0 or nums[mid - 1] != target):
+                result.append(mid)
+                break
+            if nums[mid] < target:
+                start = mid + 1
+            else:
+                end = mid
 
+        if not result:
+            return [-1, -1]
+
+        end = len(nums) - 1
+
+        while start < end:
+            mid = start + int((end - start) / 2)
+            if nums[mid] == target and (mid == len(nums) - 1
+                                        or nums[mid + 1] != target):
+                result.append(mid)
+                break
+            if nums[mid] < target:
+                start = mid + 1
+            else:
+                end = mid
+
+        return result
+
+
+if __name__ == "__main__":
+    solution = Solution()
+    result = solution.searchRange([5, 7, 7, 8, 8, 10], 8)
+    print(result)

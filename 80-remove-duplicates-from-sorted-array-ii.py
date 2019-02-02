@@ -39,8 +39,8 @@ class Solution(object):
         while idx < len(nums):
             if nums[idx] != nums[counter] or not twice:
                 twice = (nums[counter] == nums[idx])
-                nums[counter] = nums[idx]
                 counter += 1
+                nums[counter] = nums[idx]
             idx += 1
 
         return counter + 1

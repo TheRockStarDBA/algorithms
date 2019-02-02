@@ -1,0 +1,9 @@
+{
+    "python.pythonPath": "/usr/local/bin/python3",
+    "python.linting.pylintEnabled": true,
+    "python.formatting.provider": "yapf",
+    "editor.rulers": [
+        80,
+        120
+    ]
+}

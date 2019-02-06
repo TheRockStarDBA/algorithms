@@ -6,8 +6,8 @@ Related: Best Time to Buy and Sell Stock - Easy
 Maximum Product Subarray - Medium
 Degree of an Array -Easy
 
-Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and
- return its sum.
+Given an integer array nums, find the contiguous subarray (containing at least
+one number) which has the largest sum and return its sum.
 
 Example:
 
@@ -16,8 +16,8 @@ Output: 6
 Explanation: [4,-1,2,1] has the largest sum = 6.
 Follow up:
 
-If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is
-more subtle. """
+If you have figured out the O(n) solution, try coding another solution using the
+ divide and conquer approach, which is more subtle. """
 
 
 class Solution(object):
@@ -33,3 +33,9 @@ class Solution(object):
             largest = max(temp, largest)
 
         return largest
+
+
+if __name__ == "__main__":
+    nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+    result = Solution().maxSubArray(nums)
+    print(result)

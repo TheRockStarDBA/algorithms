@@ -42,7 +42,12 @@ rotate the input matrix in-place such that it becomes:
   [16, 7,10,11]
 ] """
 
+# Complexity Analysis
 
+
+# Time complexity : O(n^2) is a complexity given by two inserted loops.
+# Space complexity : O(1) since we do a rotation in place and allocate only the
+# list of 4 elements as a temporary helper.
 class Solution(object):
     def rotate(self, matrix):
         """
@@ -64,8 +69,7 @@ class Solution(object):
                     i, j = j, n - 1 - i
 
 
-# Complexity Analysis
-
-# Time complexity : O(n^2) is a complexity given by two inserted loops.
-# Space complexity : O(1) since we do a rotation in place and allocate only the
-# list of 4 elements as a temporary helper.
+if __name__ == "__main__":
+    input_matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    Solution().rotate(input_matrix)
+    print(input_matrix)

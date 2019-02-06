@@ -1,4 +1,6 @@
-""" Given a sorted (in ascending order) integer array nums of n elements and a target value, write a function to search target in nums. If target exists, then return its index, otherwise return -1.
+""" Given a sorted (in ascending order) integer array nums of n elements and a
+target value, write a function to search target in nums. If target exists, then
+return its index, otherwise return -1.
 
 Example 1:
 
@@ -11,7 +13,7 @@ Example 2:
 Input: nums = [-1,0,3,5,9,12], target = 2
 Output: -1
 Explanation: 2 does not exist in nums so return -1
- 
+
 
 Note:
 
@@ -19,6 +21,7 @@ You may assume that all elements in nums are unique.
 n will be in the range [1, 10000].
 The value of each element in nums will be in the range [-9999, 9999].
  """
+
 
 class Solution(object):
     def search(self, nums, target):
@@ -28,15 +31,21 @@ class Solution(object):
         :rtype: int
         """
         start = 0
-        end = len(nums)-1
-        
+        end = len(nums) - 1
+
         while start <= end:
-            mid = start + (end-start)/2
+            mid = start + (end - start) / 2
             if target < nums[mid]:
                 end = mid - 1
             elif target > nums[mid]:
                 start = mid + 1
             else:
                 return mid
-            
+
         return -1
+
+
+if __name__ == "__main__":
+    nums = [-1, 0, 3, 5, 9, 12]
+    target = 2
+    print(Solution().search(nums, target))

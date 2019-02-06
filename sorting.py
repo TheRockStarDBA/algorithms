@@ -1,4 +1,21 @@
-""" Bubble Sort
+""" Introduction
+
+Sorting is ordering a list of objects. We can distinguish two types of sorting.
+If the number of objects is small enough to fits into the main memory, sorting
+is called internal sorting. If the number of objects is so large that some of
+them reside on external storage during the sort, it is called external sorting.
+Here we consider and discuss the following internal sorting algorithms:
+
+Bucket sort
+Bubble sort
+Insertion sort
+Selection sort
+Heapsort
+Mergesort
+
+O(n^2) algorithms
+
+Bubble Sort
 
 This is a very simple sorting algorithm. Because it's also very inefficient, Bubble Sort is not practical
 for real-world use and is generally only discussed in an academic context. The basic theory behind BubbleSort

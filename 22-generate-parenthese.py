@@ -18,9 +18,11 @@ For example, given n = 3, a solution set is:
 
 # Approach: Backtracking
 
-# Add '(' or ')' when we know it will remain a valid sequence. We can do this by keeping track of the number of opening and closing brackets we have placed so far.
+# Add '(' or ')' when we know it will remain a valid sequence. We can do this by
+#  keeping track of the number of opening and closing brackets we have placed so far.
 
-# We can start an opening bracket if we still have one (of n) left to place. And we can start a closing bracket if it would not exceed the number of opening brackets.
+# We can start an opening bracket if we still have one (of n) left to place. And
+#  we can start a closing bracket if it would not exceed the number of opening brackets.
 
 
 class Solution(object):
@@ -45,4 +47,5 @@ class Solution(object):
         return ans
 
 
-print(Solution().generateParenthesis(3))
+if __name__ == "__main__":
+    print(Solution().generateParenthesis(3))

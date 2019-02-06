@@ -1,23 +1,20 @@
-# Given a linked list, remove the n-th node from the end of list and return its head.
+""" Given a linked list, remove the n-th node from the end of list and return its head.
 
-# Example:
+Topics: two-pointers, linked-list - medium
 
-# Given linked list: 1->2->3->4->5, and n = 2.
+Example:
 
-# After removing the second node from the end, the linked list becomes 1->2->3->5.
-# Note:
+Given linked list: 1->2->3->4->5, and n = 2.
 
-# Given n will always be valid.
+After removing the second node from the end, the linked list becomes 1->2->3->5.
+Note:
 
-# Follow up:
+Given n will always be valid.
 
-# Could you do this in one pass?
+Follow up:
 
-# Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
+Could you do this in one pass? """
+
 
 # Definition for singly-linked list.
 class ListNode(object):
@@ -42,7 +39,7 @@ class Solution(object):
         if not head:
             return head
         dummy = ListNode(-1)
-        dummy.next=head
+        dummy.next = head
         prev = dummy
         cur = dummy
         while prev and n >= 0:
@@ -53,6 +50,7 @@ class Solution(object):
             cur = cur.next
         cur.next = cur.next.next
         return dummy.next
+
 
 if __name__ == "__main__":
     n5 = ListNode(5)
@@ -66,4 +64,3 @@ if __name__ == "__main__":
     n4.next = n5
     result = Solution().removeNthFromEnd(n1, 5)
     result.myPrint()
-        

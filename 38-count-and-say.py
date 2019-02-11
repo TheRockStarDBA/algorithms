@@ -6,7 +6,8 @@ Encode and Decode Strings (Medium)
 String Compression (Easy)
 
 Description:
-The count-and-say sequence is the sequence of integers with the first five terms as following:
+The count-and-say sequence is the sequence of integers with the first five terms 
+as following:
 
 1.     1
 2.     11
@@ -17,7 +18,8 @@ The count-and-say sequence is the sequence of integers with the first five terms
 11 is read off as "two 1s" or 21.
 21 is read off as "one 2, then one 1" or 1211.
 
-Given an integer n where 1 ≤ n ≤ 30, generate the nth term of the count-and-say sequence.
+Given an integer n where 1 ≤ n ≤ 30, generate the nth term of the count-and-say 
+sequence.
 
 Note: Each term of the sequence of integers will be represented as a string.
 
@@ -97,6 +99,7 @@ class Solution(object):
         return s
 
 
-print(Solution().countAndSay(4))
-print(Solution().countAndSay1(5))
-print(Solution().countAndSay2(6))
+if __name__ == "__main__":
+    print(Solution().countAndSay(4))
+    print(Solution().countAndSay1(5))
+    print(Solution().countAndSay2(6))

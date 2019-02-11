@@ -5,7 +5,8 @@ Similar Questions:
 2.Add Two Numbers (Medium); 66. Plus One (Easy);
 67. Add Binary (Easy); 415. Add Strings (Easy)
 
-Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2, also represented as a string.
+Given two non-negative integers num1 and num2 represented as strings, return the 
+product of num1 and num2, also represented as a string.
 
 Example 1:
 
@@ -20,7 +21,8 @@ Note:
 The length of both num1 and num2 is < 110.
 Both num1 and num2 contain only digits 0-9.
 Both num1 and num2 do not contain any leading zero, except the number 0 itself.
-You must not use any built-in BigInteger library or convert the inputs to integer directly. """
+You must not use any built-in BigInteger library or convert the inputs to integer 
+directly. """
 
 
 class Solution(object):

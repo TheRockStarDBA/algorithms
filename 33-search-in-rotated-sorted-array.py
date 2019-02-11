@@ -2,11 +2,13 @@
 33. Search in Rotated Sorted Array
 Topic: binary-search, array; (Medium Level)
 
-Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.
+Suppose an array sorted in ascending order is rotated at some pivot unknown to 
+you beforehand.
 
 (i.e., [0,1,2,4,5,6,7] might become [4,5,6,7,0,1,2]).
 
-You are given a target value to search. If found in the array return its index, otherwise return -1.
+You are given a target value to search. If found in the array return its index, 
+otherwise return -1.
 
 You may assume no duplicate exists in the array.
 
@@ -23,13 +25,16 @@ Output: -1
 """
 
 # Approach : Binary search
-# The problem is to implement a search in O(log(N)) time that gives an idea to use a binary search.
+# The problem is to implement a search in O(log(N)) time that gives an idea to 
+# use a binary search.
 
 # The algorithm is quite straightforward :
 
-# Find a rotation index rotation_index, i.e. index of the smallest element in the array. Binary search works just perfect here.
+# Find a rotation index rotation_index, i.e. index of the smallest element in 
+# the array. Binary search works just perfect here.
 
-# rotation_index splits array in two parts. Compare nums[0] and target to identify in which part one has to look for target.
+# rotation_index splits array in two parts. Compare nums[0] and target to identify 
+# in which part one has to look for target.
 
 # Perform a binary search in the chosen part of the array.
 
@@ -90,6 +95,6 @@ class Solution(object):
         # search on the left side
         return search_target(0, rotate_index)
 
-
-print(Solution().search(nums=[4, 5, 6, 7, 0, 1, 2], target=0))
-print(Solution().search(nums=[4, 5, 6, 7, 0, 1, 2], target=3))
+if __name__ == "__main__":
+    print(Solution().search(nums=[4, 5, 6, 7, 0, 1, 2], target=0))
+    print(Solution().search(nums=[4, 5, 6, 7, 0, 1, 2], target=3))

@@ -4,9 +4,11 @@ Related:
 Merge Intervals - Medium
 Range Module - Hard
 
-Given a set of non-overlapping intervals, insert a new interval into the intervals (merge if necessary).
+Given a set of non-overlapping intervals, insert a new interval into the intervals 
+(merge if necessary).
 
-You may assume that the intervals were initially sorted according to their start times.
+You may assume that the intervals were initially sorted according to their start 
+times.
 
 Example 1:
 
@@ -17,25 +19,27 @@ Example 2:
 Input: intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [4,8]
 Output: [[1,2],[3,10],[12,16]]
 Explanation: Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10]. """
-""" Approach :
 
-Let the new interval to be inserted is : [a, b]
+# Approach :
 
-Case 1 : b < (starting time of first interval in set)
-In this case simply insert new interval at the beginning of the set.
+# Let the new interval to be inserted is : [a, b]
 
-Case 2 : (ending value of last interval in set) < a
-In this case simply insert new interval at the end of the set.
+# Case 1 : b < (starting time of first interval in set)
+# In this case simply insert new interval at the beginning of the set.
 
-Case 3 : a ≤ (starting value of first interval) and b ≥ (ending value of last interval)
-In this case the new interval overlaps with all the intervals, i.e., it contains all the intervals. So the final answer
-is the new interval itself.
+# Case 2 : (ending value of last interval in set) < a
+# In this case simply insert new interval at the end of the set.
 
-Case 4 : The new interval does not overlap with any interval in the set and falls between any two intervals in the set
+# Case 3 : a ≤ (starting value of first interval) and b ≥ (ending value of last
+# interval)
+# In this case the new interval overlaps with all the intervals, i.e., it contains
+# all the intervals. So the final answer
+# is the new interval itself.
 
-Case 5 : The new interval overlaps with the interval(s) of the set.
+# Case 4 : The new interval does not overlap with any interval in the set and falls
+# between any two intervals in the set
 
- """
+# Case 5 : The new interval overlaps with the interval(s) of the set.
 
 
 # Definition for an interval.

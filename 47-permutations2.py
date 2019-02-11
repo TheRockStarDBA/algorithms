@@ -4,7 +4,8 @@ Topic: backtracking - medium
 
 Description:
 
-Given a collection of numbers that might contain duplicates, return all possible unique permutations.
+Given a collection of numbers that might contain duplicates, return all possible 
+unique permutations.
 
 Input: [1,1,2]
 

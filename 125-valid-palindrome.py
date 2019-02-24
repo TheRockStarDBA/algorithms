@@ -24,19 +24,16 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        s = self.convert(s)
-        for j in range(len(s) // 2):
-            if s[j] != s[len(s) - j - 1]:
-                return False
-
-        return True
-
-    def convert(self, s):
         ans = ""
         for i in range(len(s)):
             if s[i].isalnum():
                 ans += s[i].lower()
-        return ans
+
+        for j in range(len(ans) // 2):
+            if ans[j] != ans[len(ans) - j - 1]:
+                return False
+
+        return True
 
 
 class Solution2(object):

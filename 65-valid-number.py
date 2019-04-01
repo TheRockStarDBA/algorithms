@@ -39,3 +39,44 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
+        s = s.strip()
+        idx = 0
+        n = len(s)
+
+        if n == 0:
+            return False
+        if s[idx] == "+" or s[idx] == '-':
+            idx += 1
+
+        isNumeric = False
+        while idx < n and s[idx].isdigit():
+            idx += 1
+            isNumeric = True
+        if idx < n and s[idx] == '.':
+            idx += 1
+            while idx < n and s[idx].isdigit():
+                idx += 1
+                isNumeric = True
+        if idx < n and s[idx] == 'e' and isNumeric:
+            isNumeric = False
+            idx += 1
+            if idx < n and (s[idx] == '+' or s[idx] == '-'):
+                idx += 1
+            while idx < n and s[idx].isdigit():
+                idx += 1
+                isNumeric = True
+
+        if idx == n and isNumeric:
+            return True
+        return False
+
+
+if __name__ == "__main__":
+    print(Solution().isNumber("3.e-23"))
+    print(Solution().isNumber(".2e81"))
+    print(Solution().isNumber("2e10"))
+    print(Solution().isNumber(" 0.1"))
+    print(Solution().isNumber("1 b"))
+    print(Solution().isNumber("3-2"))
+    print(Solution().isNumber("abc"))
+    print(Solution().isNumber("46.e19"))

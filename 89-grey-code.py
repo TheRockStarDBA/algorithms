@@ -1,5 +1,6 @@
 """ 89. Gray Code -Medium
-Topic: backtracking
+＃backtracking
+
 Related: 1-bit and 2-bit Characters - Easy
 
 The gray code is a binary numeral system where two successive values differ in
@@ -42,3 +43,12 @@ class Solution(object):
         :type n: int
         :rtype: List[int]
         """
+        result = [0]
+        for i in range(n):
+            for j in reversed(result):
+                result.append(1 << i | j)
+        return result
+
+
+if __name__ == "__main__":
+    print(Solution().grayCode(n=2))

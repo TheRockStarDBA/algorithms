@@ -1,8 +1,8 @@
-""" 103. Binary Tree Zigzag Level Order Traversal - Medium
-#stack #tree #breadth-first search
+""" 107. Binary Tree Level Order Traversal II - Easy
+#tree #breadth-first search
 
-Given a binary tree, return the zigzag level order traversal of its nodes' values.
-(ie, from left to right, then right to left for the next level and alternate between).
+Given a binary tree, return the bottom-up level order traversal of its nodes'
+values. (ie, from left to right, level by level from leaf to root).
 
 For example:
 Given binary tree [3,9,20,null,null,15,7],
@@ -11,14 +11,12 @@ Given binary tree [3,9,20,null,null,15,7],
   9  20
     /  \
    15   7
-return its zigzag level order traversal as:
+return its bottom-up level order traversal as:
 [
-  [3],
-  [20,9],
-  [15,7]
-]
-
- """
+  [15,7],
+  [9,20],
+  [3]
+] """
 
 
 # Definition for a binary tree node.
@@ -30,7 +28,7 @@ class TreeNode(object):
 
 
 class Solution(object):
-    def zigzagLevelOrder(self, root):
+    def levelOrderBottom(self, root):
         """
         :type root: TreeNode
         :rtype: List[List[int]]
@@ -47,7 +45,6 @@ class Solution(object):
                 if node.right:
                     next_level.append(node.right)
             current = next_level
-            result.append(curr_level_vals[::-1] if len(result) %
-                          2 else curr_level_vals)
+            result.append(curr_level_vals)
 
-        return result
+        return result[::-1]

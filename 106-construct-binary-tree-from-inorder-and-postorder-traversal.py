@@ -35,3 +35,15 @@ class Solution(object):
         :type postorder: List[int]
         :rtype: TreeNode
         """
+        inorder_lookup = {n: i for i, n in enumerate(inorder)}
+
+        def buildTreeHelper(start, end):
+            if start < end:
+                root_val = postorder.pop()
+                root = TreeNode(root_val)
+                root_idx = inorder_lookup[root_val]
+                root.right = buildTreeHelper(root_idx + 1, end)
+                root.left = buildTreeHelper(start, root_idx)
+                return root
+
+        return buildTreeHelper(0, len(inorder))

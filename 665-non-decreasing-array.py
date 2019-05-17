@@ -25,3 +25,18 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
+        isChange, prev = False, nums[0]
+        for i in range(1, len(nums)):
+            if prev > nums[i]:
+                if isChange:
+                    return False
+                if i - 2 < 0 or nums[i - 2] <= nums[i]:
+                    prev = nums[i]
+                isChange = True
+            else:
+                prev = nums[i]
+        return True
+
+
+if __name__ == "__main__":
+    print(Solution().checkPossibility(nums=[4, 2, 1]))

@@ -26,6 +26,27 @@ a queue by using a list or deque (double-ended queue), as long as you use only
 standard operations of a queue.
 You may assume that all operations are valid (for example, no pop or top operations
 will be called on an empty stack). """
+import collections
+
+
+class Queue(object):
+    def __init__(self):
+        self.data = collections.deque()
+
+    def push(self, x):
+        self.data.append(x)
+
+    def peek(self):
+        return self.data[0]
+
+    def pop(self):
+        return self.data.popleft()
+
+    def size(self):
+        return len(self.data)
+
+    def empty(self):
+        return len(self.data) == 0
 
 
 class MyStack(object):
@@ -33,6 +54,8 @@ class MyStack(object):
         """
         Initialize your data structure here.
         """
+        self.queue_ = Queue()
+        self.top_ = None
 
     def push(self, x):
         """
@@ -40,24 +63,32 @@ class MyStack(object):
         :type x: int
         :rtype: None
         """
+        self.queue_.push(x)
+        self.top_ = x
 
     def pop(self):
         """
         Removes the element on top of the stack and returns that element.
         :rtype: int
         """
+        for _ in range(self.queue_.size() - 1):
+            self.top_ = self.queue_.pop()
+            self.queue_.push(self.top_)
+        return self.queue_.pop()
 
     def top(self):
         """
         Get the top element.
         :rtype: int
         """
+        return self.top_
 
     def empty(self):
         """
         Returns whether the stack is empty.
         :rtype: bool
         """
+        return self.queue_.empty()
 
 
 # Your MyStack object will be instantiated and called as such:

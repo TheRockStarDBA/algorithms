@@ -41,6 +41,37 @@ class Solution(object):
         return min_size if min_size != float('inf') else 0
 
 
+# Binary search
+# Time:  O(nlogn)
+# Space: O(n)
+
+import bisect
+
+
+class Solution2(object):
+    def minSubArrayLen(self, s, nums):
+        """
+        :type s: int
+        :type nums: List[int]
+        :rtype: int
+        """
+        n = len(nums)
+        if n == 0:
+            return 0
+        min_size = float('inf')
+        sums = [0] * (n + 1)
+        for i in range(1, n + 1):
+            sums[i] = sums[i - 1] + nums[i - 1]
+        for i in range(1, n + 1):
+            to_find = sums[i - 1] + s
+            # Find the index in sums such that value at that index is not lower
+            # than the to_find value
+            bound = bisect.bisect_left(sums, to_find, i, n)
+            if sums[bound] == to_find:
+                min_size = min(min_size, bound - i + 1)
+        return min_size if min_size != float("inf") else 0
+
+
 if __name__ == "__main__":
-    ans = Solution().minSubArrayLen(s=7, nums=[2, 3, 1, 2, 4, 3])
+    ans = Solution2().minSubArrayLen(s=7, nums=[2, 3, 1, 2, 4, 3])
     print(ans)

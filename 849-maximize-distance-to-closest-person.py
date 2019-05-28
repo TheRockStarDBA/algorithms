@@ -32,7 +32,9 @@ Note:
 seats contains only 0s or 1s, at least one 0, and at least one 1.
  """
 
-#Two pointers
+# Two pointers
+# Time:  O(n)
+# Space: O(1)
 
 
 class Solution(object):
@@ -54,6 +56,23 @@ class Solution(object):
             right = float('inf') if future is None else future - idx
             ans = max(ans, min(left, right))
         return ans
+
+
+class Solution2(object):
+    def maxDistToClosest(self, seats):
+        """
+        :type seats: List[int]
+        :rtype: int
+        """
+        prev, ans = -1, 1
+        for i, seat in enumerate(seats):
+            if seat:
+                if prev < 0:
+                    ans = i
+                else:
+                    ans = max(ans, (i - prev) // 2)
+                prev = i
+        return max(ans, len(seats) - 1 - prev)
 
 
 if __name__ == "__main__":
